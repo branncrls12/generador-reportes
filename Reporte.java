@@ -1,5 +1,8 @@
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 
 public class Reporte {
     private HashMap<String, Integer> ventas;
@@ -12,8 +15,12 @@ public class Reporte {
         ventas.put("Jueves", 200);
         ventas.put("Viernes", 175);
     }
-
-    public HashMap<String, Integer> getVentas() {
-        return ventas;
+   public void imprimirReporte() {
+        List<String> dias = new ArrayList<>(ventas.keySet());
+        Collections.sort(dias);
+        System.out.println("Reporte de ventas:");
+        for (String dia : dias) {
+            System.out.println(dia + ": " + ventas.get(dia));
+        }
     }
 }
